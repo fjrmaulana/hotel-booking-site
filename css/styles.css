@@ -204,15 +204,6 @@ a:hover { color: var(--indigo-deep); text-decoration-thickness: 2px; }
 .nav-toggle[aria-expanded="true"] .nav-toggle__bars::before { transform: translateY(6px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .nav-toggle__bars::after { transform: translateY(-6px) rotate(-45deg); }
 
-/* On the home page the header floats over the photo until you scroll */
-.has-hero .site-header:not(.is-stuck):not(.is-open) {
-  background: transparent; border-bottom-color: transparent; color: var(--white);
-}
-.has-hero .site-header:not(.is-stuck):not(.is-open) .brand { color: var(--white); }
-.has-hero .site-header:not(.is-stuck):not(.is-open) .btn {
-  background: var(--white); border-color: var(--white); color: var(--ink);
-}
-
 /* Small screens: the menu folds behind a button (only when JavaScript runs) */
 @media (max-width: 54rem) {
   :root { --header-h: 4rem; }
@@ -237,75 +228,65 @@ a:hover { color: var(--indigo-deep); text-decoration-thickness: 2px; }
 }
 
 /* 7. Home hero gallery ---------------------------------------------------- */
+/* Full-width photos play in the background. The headline sits in a white
+   panel on top, so the photos stay bright and the text is always readable. */
 .hero {
   position: relative;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  min-height: 100vh;
-  min-height: 100svh;
-  margin-top: calc(-1 * var(--header-h));   /* slides sit under the header */
-  background: var(--ink); color: var(--white);
+  display: flex; align-items: flex-end;
+  height: calc(100vh - var(--header-h));
+  height: calc(100svh - var(--header-h));
+  min-height: 36rem;
+  background: var(--chalk);
   overflow: hidden;
   isolation: isolate;
 }
-.hero__slides { position: absolute; inset: 0; z-index: -2; }
+.hero__slides { position: absolute; inset: 0; z-index: -1; }
 .hero__slide {
   position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: cover;
-  background: var(--ink);
   opacity: 0; transition: opacity 1.4s ease;
 }
 .hero__slide.is-active { opacity: 1; }
 
-/* Darkens the top (menu) and bottom (headline) so white text stays readable */
-.hero::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  /* Three soft shades (top, bottom, left) keep white text readable on bright photos */
-  background:
-    linear-gradient(to bottom, rgba(13, 21, 31, 0.62) 0, rgba(13, 21, 31, 0) 30%),
-    linear-gradient(to top, rgba(13, 21, 31, 0.86) 0, rgba(13, 21, 31, 0.5) 42%, rgba(13, 21, 31, 0) 82%),
-    linear-gradient(to right, rgba(13, 21, 31, 0.5) 0, rgba(13, 21, 31, 0) 68%);
+.hero__panel {
+  max-width: 36rem;
+  margin-bottom: clamp(1.5rem, 4vw, 3.25rem);
+  padding: clamp(1.75rem, 3vw, 2.75rem) clamp(1.5rem, 3vw, 2.75rem) 0;
+  background: var(--white);
+  box-shadow: 0 30px 60px -30px rgba(21, 33, 46, 0.5);
 }
-.site-header .btn { text-shadow: none; }
-.hero h1,
-.hero__text,
-.has-hero .site-header:not(.is-stuck):not(.is-open) { text-shadow: 0 1px 18px rgba(13, 21, 31, 0.45); }
+.hero h1 { font-size: clamp(2.3rem, 4.6vw, 3.75rem); margin-bottom: 0.35em; }
+.hero__text { font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: var(--ink-soft); margin-bottom: 0; }
+.hero .btn-row { margin-top: 1.5rem; }
 
-.hero__content { padding-block: calc(var(--header-h) + 3rem) clamp(2rem, 5vw, 3.5rem); }
-.hero h1 { max-width: 14ch; margin-bottom: 0.3em; }
-.hero__text { max-width: 44ch; font-size: clamp(1.1rem, 1.7vw, 1.3rem); color: rgba(255, 255, 255, 0.92); }
-.hero .btn-row { margin-top: 1.75rem; }
-.hero .btn:not(.btn--whatsapp) { background: var(--white); border-color: var(--white); color: var(--ink); }
-.hero .btn:not(.btn--whatsapp):hover { background: var(--chalk); border-color: var(--chalk); }
-.hero :focus-visible { outline-color: var(--white); }
-
-/* Caption, counter and controls along the bottom edge */
+/* Counter, caption and controls along the bottom of the panel */
 .hero__bar {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  padding-block: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  margin-top: clamp(1.5rem, 2.5vw, 2rem); padding-block: 0.8rem;
+  border-top: 1px solid var(--line);
   font-size: 0.95rem;
 }
-.hero__caption { margin: 0; display: flex; gap: 0.9rem; align-items: baseline; min-width: 0; }
-.hero__caption-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.hero__count { font-variant-numeric: tabular-nums; color: rgba(255, 255, 255, 0.75); white-space: nowrap; }
-.hero__controls { display: flex; gap: 0.35rem; }
+.hero__caption { margin: 0; display: flex; gap: 0.8rem; align-items: baseline; min-width: 0; }
+.hero__caption-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-soft); }
+.hero__count { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.hero__controls { display: flex; gap: 0.35rem; flex: none; }
 .hero__btn {
   display: grid; place-items: center;
   width: 2.75rem; height: 2.75rem;
-  background: transparent; color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.45); border-radius: 50%;
+  background: var(--white); color: var(--ink);
+  border: 1px solid #8793a1; border-radius: 50%;
   cursor: pointer; transition: background-color 0.15s;
 }
-.hero__btn:hover { background: rgba(255, 255, 255, 0.18); }
+.hero__btn:hover { background: var(--chalk); }
 .hero__btn svg { width: 1.1rem; height: 1.1rem; }
 .hero__btn .icon-play { display: none; }
 .hero.is-paused .hero__btn .icon-play { display: block; }
 .hero.is-paused .hero__btn .icon-pause { display: none; }
 
 /* The thin line that fills while each photo is on screen */
-.hero__progress { height: 3px; background: rgba(255, 255, 255, 0.25); }
+.hero__progress { height: 3px; margin-inline: calc(-1 * clamp(1.5rem, 3vw, 2.75rem)); background: var(--line); }
 .hero__progress-fill {
-  display: block; height: 100%; background: var(--white);
+  display: block; height: 100%; background: var(--indigo);
   transform: scaleX(0); transform-origin: left center;
 }
 .hero.is-playing .hero__progress-fill { animation: hero-progress var(--slide-time, 6s) linear forwards; }
@@ -314,6 +295,15 @@ a:hover { color: var(--indigo-deep); text-decoration-thickness: 2px; }
 
 html:not(.js) .hero__bar,
 html:not(.js) .hero__progress { display: none; }
+html:not(.js) .hero__panel { padding-bottom: 2rem; }
+
+/* Phones: photos on top, white panel underneath */
+@media (max-width: 40rem) {
+  .hero { display: block; height: auto; min-height: 0; background: var(--white); }
+  .hero__slides { position: relative; height: 46vh; height: 46svh; min-height: 15rem; overflow: hidden; }
+  .hero__panel { max-width: none; margin-bottom: 0; padding: 1.75rem 0 0; box-shadow: none; }
+  .hero__progress { margin-inline: 0; }
+}
 
 /* 8. Home sections -------------------------------------------------------- */
 .welcome { display: grid; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }

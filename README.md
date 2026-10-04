@@ -5,7 +5,7 @@ No frameworks, no build step, no backend. Open `index.html` and it works.
 
 | Page | File | What is on it |
 | --- | --- | --- |
-| Home | `index.html` | Auto-playing full-width background gallery, Book now and WhatsApp buttons, room preview, amenities, photo preview |
+| Home | `index.html` | Auto-playing full-width background gallery with a white headline panel, Book now and WhatsApp buttons, room preview, amenities, photo preview |
 | Rooms & amenities | `rooms.html` | One block per room, amenity icons, rates table ready for prices |
 | Gallery | `gallery.html` | Masonry grid with category filter, opens in a lightbox |
 | Contact | `contact.html` | WhatsApp, email and phone links, enquiry form, Google map |
@@ -83,6 +83,9 @@ image service at the exact size each screen needs.
 slide, delete one to remove it. `data-caption` is the line shown at the bottom.
 To change how long each photo stays, edit `--slide-time: 6s` on the
 `<section class="hero">` tag.
+If a photo is cut off in the wrong place, add `style="object-position: 50% 100%"`
+to its `<img>` tag: the second number chooses which part stays visible
+(0% = top of the photo, 50% = middle, 100% = bottom).
 
 **Gallery:** each photo is one `<li> ... </li>` block in `gallery.html`. Copy a
 block to add a photo. `href` is the large version shown in the lightbox, `src`

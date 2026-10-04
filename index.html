@@ -13,7 +13,7 @@
   <meta property="og:site_name" content="Alba House">
   <meta property="og:title" content="Alba House | Small hotel with garden pool in Udaipur">
   <meta property="og:description" content="Twelve bright rooms, a garden pool and breakfast included. See the rooms, browse the gallery and book direct by WhatsApp or email.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=70">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=70">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#ffffff">
 
@@ -25,8 +25,8 @@
   <link rel="preload" href="fonts/albert-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <!-- Speed: fetch the first hero photo before anything else -->
   <link rel="preload" as="image" fetchpriority="high"
-        href="https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65"
-        imagesrcset="https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=768&amp;h=480&amp;q=65 768w, https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65 1280w, https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=1920&amp;h=1200&amp;q=65 1920w, https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=2560&amp;h=1600&amp;q=65 2560w"
+        href="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65"
+        imagesrcset="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=768&amp;h=480&amp;q=65 768w, https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65 1280w, https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1920&amp;h=1200&amp;q=65 1920w, https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=2560&amp;h=1600&amp;q=65 2560w"
         imagesizes="100vw">
 
   <!-- SEO: tells search engines this is a hotel. Update name, address, phone and email. -->
@@ -90,13 +90,19 @@
     <!-- ===== Hero: full-width background gallery that plays by itself =====
          To change a photo, replace the image address in src / data-src (and the
          matching srcset line) and edit data-caption. Add or remove a slide by
-         copying or deleting one whole <img> tag. See README.md, "Change photos". -->
+         copying or deleting one whole <img> tag. If a photo is cut off in the
+         wrong place, add style="object-position: 50% 100%" to its <img>
+         (0% = show the top, 100% = show the bottom). See README.md, "Change photos". -->
     <section class="hero" data-hero style="--slide-time: 6s" aria-label="Photos of Alba House">
       <div class="hero__slides" aria-hidden="true">
-        <img class="hero__slide is-active" data-caption="The house and its pool"
-             src="https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65"
-             srcset="https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=768&amp;h=480&amp;q=65 768w, https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65 1280w, https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=1920&amp;h=1200&amp;q=65 1920w, https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=2560&amp;h=1600&amp;q=65 2560w"
+        <img class="hero__slide is-active" data-caption="Bougainvillea over the pool terrace"
+             src="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65"
+             srcset="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=768&amp;h=480&amp;q=65 768w, https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65 1280w, https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1920&amp;h=1200&amp;q=65 1920w, https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=2560&amp;h=1600&amp;q=65 2560w"
              sizes="100vw" width="1920" height="1200" alt="" fetchpriority="high" decoding="async">
+        <img class="hero__slide" data-caption="The house and its pool" style="object-position: 50% 100%"
+             data-src="https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65"
+             data-srcset="https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=768&amp;h=480&amp;q=65 768w, https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65 1280w, https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=1920&amp;h=1200&amp;q=65 1920w, https://images.unsplash.com/photo-1659779088205-b9b9bd33a283?auto=format&amp;fit=crop&amp;w=2560&amp;h=1600&amp;q=65 2560w"
+             sizes="100vw" width="1920" height="1200" alt="" decoding="async">
         <img class="hero__slide" data-caption="Morning light in a Terrace Room"
              data-src="https://images.unsplash.com/photo-1631049552057-403cdb8f0658?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65"
              data-srcset="https://images.unsplash.com/photo-1631049552057-403cdb8f0658?auto=format&amp;fit=crop&amp;w=768&amp;h=480&amp;q=65 768w, https://images.unsplash.com/photo-1631049552057-403cdb8f0658?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65 1280w, https://images.unsplash.com/photo-1631049552057-403cdb8f0658?auto=format&amp;fit=crop&amp;w=1920&amp;h=1200&amp;q=65 1920w, https://images.unsplash.com/photo-1631049552057-403cdb8f0658?auto=format&amp;fit=crop&amp;w=2560&amp;h=1600&amp;q=65 2560w"
@@ -105,48 +111,46 @@
              data-src="https://images.unsplash.com/photo-1781456016988-04806c42c260?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65"
              data-srcset="https://images.unsplash.com/photo-1781456016988-04806c42c260?auto=format&amp;fit=crop&amp;w=768&amp;h=480&amp;q=65 768w, https://images.unsplash.com/photo-1781456016988-04806c42c260?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65 1280w, https://images.unsplash.com/photo-1781456016988-04806c42c260?auto=format&amp;fit=crop&amp;w=1920&amp;h=1200&amp;q=65 1920w, https://images.unsplash.com/photo-1781456016988-04806c42c260?auto=format&amp;fit=crop&amp;w=2560&amp;h=1600&amp;q=65 2560w"
              sizes="100vw" width="1920" height="1200" alt="" decoding="async">
-        <img class="hero__slide" data-caption="Bougainvillea over the pool terrace"
-             data-src="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65"
-             data-srcset="https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=768&amp;h=480&amp;q=65 768w, https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1280&amp;h=800&amp;q=65 1280w, https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=1920&amp;h=1200&amp;q=65 1920w, https://images.unsplash.com/photo-1606819422797-74627f4dac0b?auto=format&amp;fit=crop&amp;w=2560&amp;h=1600&amp;q=65 2560w"
-             sizes="100vw" width="1920" height="1200" alt="" decoding="async">
       </div>
 
-      <div class="wrap hero__content">
-        <h1>Bright rooms, slow mornings.</h1>
-        <p class="hero__text">Alba House is a small, family-run hotel with twelve sunlit rooms, a garden pool and a breakfast worth getting up for.</p>
-        <div class="btn-row">
-          <a class="btn" href="contact.html#enquiry">Book now</a>
-          <a class="btn btn--whatsapp" href="https://wa.me/910000000000?text=Hello%20Alba%20House%2C%20I%27d%20like%20to%20ask%20about%20a%20stay." target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg>
-            Chat on WhatsApp
-          </a>
-        </div>
-      </div>
-
-      <div class="wrap">
-        <div class="hero__bar">
-          <p class="hero__caption" aria-live="polite">
-            <span class="hero__count" data-hero-count>1 / 4</span>
-            <span class="hero__caption-text" data-hero-caption>The house and its pool</span>
-          </p>
-          <div class="hero__controls">
-            <button class="hero__btn" type="button" data-hero-prev>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
-              <span class="visually-hidden">Previous photo</span>
-            </button>
-            <button class="hero__btn hero__btn--toggle" type="button" data-hero-toggle aria-pressed="false">
-              <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
-              <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 5l11 7-11 7z"/></svg>
-              <span class="visually-hidden">Pause slideshow</span>
-            </button>
-            <button class="hero__btn" type="button" data-hero-next>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
-              <span class="visually-hidden">Next photo</span>
-            </button>
+      <div class="wrap hero__wrap">
+        <!-- White panel that sits on top of the photos -->
+        <div class="hero__panel">
+          <h1>Bright rooms, slow mornings.</h1>
+          <p class="hero__text">Alba House is a small, family-run hotel with twelve sunlit rooms, a garden pool and a breakfast worth getting up for.</p>
+          <div class="btn-row">
+            <a class="btn" href="contact.html#enquiry">Book now</a>
+            <a class="btn btn--whatsapp" href="https://wa.me/910000000000?text=Hello%20Alba%20House%2C%20I%27d%20like%20to%20ask%20about%20a%20stay." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+              Chat on WhatsApp
+            </a>
           </div>
+
+          <!-- Photo counter, caption and slideshow controls -->
+          <div class="hero__bar">
+            <p class="hero__caption" aria-live="polite">
+              <span class="hero__count" data-hero-count>1 / 4</span>
+              <span class="hero__caption-text" data-hero-caption>Bougainvillea over the pool terrace</span>
+            </p>
+            <div class="hero__controls">
+              <button class="hero__btn" type="button" data-hero-prev>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
+                <span class="visually-hidden">Previous photo</span>
+              </button>
+              <button class="hero__btn hero__btn--toggle" type="button" data-hero-toggle aria-pressed="false">
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 5l11 7-11 7z"/></svg>
+                <span class="visually-hidden">Pause slideshow</span>
+              </button>
+              <button class="hero__btn" type="button" data-hero-next>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
+                <span class="visually-hidden">Next photo</span>
+              </button>
+            </div>
+          </div>
+          <div class="hero__progress" aria-hidden="true"><span class="hero__progress-fill"></span></div>
         </div>
       </div>
-      <div class="hero__progress" aria-hidden="true"><span class="hero__progress-fill"></span></div>
     </section>
 
     <!-- ===== Welcome ===== -->
