@@ -1,0 +1,548 @@
+/* ==========================================================================
+   Alba House — site styles
+   Plain CSS, no build step. Sections, in order:
+     1. Fonts            5. Buttons & links      9. Rooms & amenities
+     2. Design tokens    6. Header & navigation  10. Gallery & lightbox
+     3. Base elements    7. Home hero gallery    11. Contact & form
+     4. Layout helpers   8. Home sections        12. Footer, WhatsApp, motion
+   To change the look, start with the tokens in section 2.
+   ========================================================================== */
+
+/* 1. Fonts (self-hosted, so no third-party font request) ------------------ */
+@font-face {
+  font-family: "Marcellus";
+  src: url("../fonts/marcellus-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Albert Sans";
+  src: url("../fonts/albert-sans-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Design tokens -------------------------------------------------------- */
+:root {
+  /* Colour */
+  --white: #ffffff;
+  --chalk: #f3f5f8;        /* pale band behind alternate sections */
+  --line: #dce2e9;         /* hairlines and input borders */
+  --ink: #15212e;          /* main text */
+  --ink-soft: #4a5868;     /* secondary text */
+  --indigo: #23408f;       /* the one accent: links, buttons, focus */
+  --indigo-deep: #172c66;  /* accent on hover */
+  --whatsapp: #0c7a43;     /* WhatsApp buttons only */
+  --whatsapp-deep: #095c33;
+  --error: #b3261e;
+
+  /* Type */
+  --font-display: "Marcellus", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Albert Sans", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+
+  /* Space and size */
+  --header-h: 4.5rem;
+  --wrap: 75rem;                              /* max content width (1200px) */
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);      /* side padding */
+  --section: clamp(4rem, 9vw, 7.5rem);        /* vertical space between sections */
+  --radius: 3px;
+}
+
+/* 3. Base elements -------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 1rem); /* keeps anchors clear of the sticky header */
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  margin: 0 0 0.6em;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2.6rem, 6.4vw, 5rem); }
+h2 { font-size: clamp(1.95rem, 3.8vw, 3rem); }
+h3 { font-size: 1.5rem; line-height: 1.2; }
+
+p { margin: 0 0 1.1em; max-width: 62ch; }
+ul, ol, dl { margin: 0; padding: 0; }
+img { display: block; max-width: 100%; height: auto; background: #e4e9ef; } /* tint shown while a photo loads */
+
+a { color: var(--indigo); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { color: var(--indigo-deep); text-decoration-thickness: 2px; }
+
+/* One visible focus style for every interactive element */
+:focus-visible {
+  outline: 3px solid var(--indigo);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+/* 4. Layout helpers ------------------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: calc(var(--wrap) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.section { padding-block: var(--section); }
+.section--chalk { background: var(--chalk); }
+.section__intro { margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+.section__intro p { color: var(--ink-soft); font-size: 1.125rem; }
+.lead { font-size: clamp(1.15rem, 1.6vw, 1.3rem); color: var(--ink-soft); }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 200;
+  padding: 0.7rem 1rem; background: var(--ink); color: var(--white);
+  border-radius: var(--radius);
+}
+.skip-link:focus { top: 1rem; color: var(--white); }
+
+/* Plain page title used on Rooms, Gallery and Contact */
+.page-head { padding-block: clamp(3rem, 7vw, 5.5rem) clamp(1.5rem, 3vw, 2.5rem); }
+.page-head h1 { font-size: clamp(2.4rem, 5.4vw, 4.2rem); margin-bottom: 0.35em; }
+.page-head p { margin-bottom: 0; }
+
+/* 5. Buttons & links ------------------------------------------------------ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+  min-height: 3rem; padding: 0.7rem 1.4rem;
+  border: 1.5px solid var(--indigo); border-radius: var(--radius);
+  background: var(--indigo); color: var(--white);
+  font: 600 1rem/1.2 var(--font-body); text-decoration: none; cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+.btn:hover { background: var(--indigo-deep); border-color: var(--indigo-deep); color: var(--white); }
+.btn svg { width: 1.2em; height: 1.2em; flex: none; }
+
+.btn--outline { background: transparent; color: var(--indigo); }
+.btn--outline:hover { background: var(--indigo); color: var(--white); }
+
+.btn--whatsapp { background: var(--whatsapp); border-color: var(--whatsapp); }
+.btn--whatsapp:hover { background: var(--whatsapp-deep); border-color: var(--whatsapp-deep); }
+
+.btn--small { min-height: 2.6rem; padding: 0.5rem 1.05rem; font-size: 0.95rem; }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+.text-link { font-weight: 600; }
+
+/* 6. Header & navigation -------------------------------------------------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h);
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+}
+.site-header__inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  height: 100%;
+}
+
+.brand {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  color: var(--ink); text-decoration: none;
+  font-family: var(--font-display); font-size: 1.45rem; line-height: 1; white-space: nowrap;
+}
+.brand:hover { color: var(--ink); }
+.brand svg { width: 1.6rem; height: 1.6rem; flex: none; }
+
+.site-nav { display: flex; align-items: center; gap: 1.75rem; }
+.site-nav ul { display: flex; gap: 1.75rem; list-style: none; }
+.site-nav li a {
+  display: block; padding: 0.4rem 0;
+  color: inherit; font-weight: 500; text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.site-nav li a:hover,
+.site-nav li a[aria-current="page"] { border-bottom-color: currentColor; }
+
+.nav-toggle {
+  display: none;
+  align-items: center; gap: 0.6rem;
+  min-height: 2.75rem; padding: 0.4rem 0.8rem;
+  background: transparent; color: inherit;
+  border: 1.5px solid currentColor; border-radius: var(--radius);
+  font: 600 0.95rem/1 var(--font-body); cursor: pointer;
+}
+.nav-toggle__bars,
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  display: block; width: 1.15rem; height: 2px; background: currentColor; content: "";
+  transition: transform 0.2s;
+}
+.nav-toggle__bars { position: relative; }
+.nav-toggle__bars::before { position: absolute; top: -6px; }
+.nav-toggle__bars::after { position: absolute; top: 6px; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::before { transform: translateY(6px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::after { transform: translateY(-6px) rotate(-45deg); }
+
+/* On the home page the header floats over the photo until you scroll */
+.has-hero .site-header:not(.is-stuck):not(.is-open) {
+  background: transparent; border-bottom-color: transparent; color: var(--white);
+}
+.has-hero .site-header:not(.is-stuck):not(.is-open) .brand { color: var(--white); }
+.has-hero .site-header:not(.is-stuck):not(.is-open) .btn {
+  background: var(--white); border-color: var(--white); color: var(--ink);
+}
+
+/* Small screens: the menu folds behind a button (only when JavaScript runs) */
+@media (max-width: 54rem) {
+  :root { --header-h: 4rem; }
+  .js .nav-toggle { display: inline-flex; }
+  .js .site-nav {
+    display: none;
+    position: absolute; left: 0; right: 0; top: 100%;
+    flex-direction: column; align-items: stretch; gap: 1.25rem;
+    padding: 1rem var(--gutter) 1.75rem;
+    background: var(--white); color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 18px 30px -18px rgba(21, 33, 46, 0.35);
+  }
+  .js .site-header.is-open .site-nav { display: flex; }
+  .js .site-nav ul { flex-direction: column; gap: 0; }
+  .js .site-nav li a { padding: 0.9rem 0; border-bottom: 1px solid var(--line); font-size: 1.1rem; }
+  /* Without JavaScript the links simply wrap under the logo */
+  html:not(.js) .site-header { height: auto; padding-block: 0.75rem; }
+  html:not(.js) .site-header__inner,
+  html:not(.js) .site-nav,
+  html:not(.js) .site-nav ul { flex-wrap: wrap; gap: 0.5rem 1.1rem; }
+}
+
+/* 7. Home hero gallery ---------------------------------------------------- */
+.hero {
+  position: relative;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin-top: calc(-1 * var(--header-h));   /* slides sit under the header */
+  background: var(--ink); color: var(--white);
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero__slides { position: absolute; inset: 0; z-index: -2; }
+.hero__slide {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  background: var(--ink);
+  opacity: 0; transition: opacity 1.4s ease;
+}
+.hero__slide.is-active { opacity: 1; }
+
+/* Darkens the top (menu) and bottom (headline) so white text stays readable */
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(to bottom, rgba(13, 21, 31, 0.55) 0, rgba(13, 21, 31, 0) 26%),
+    linear-gradient(to top, rgba(13, 21, 31, 0.82) 0, rgba(13, 21, 31, 0.35) 45%, rgba(13, 21, 31, 0) 75%);
+}
+
+.hero__content { padding-block: calc(var(--header-h) + 3rem) clamp(2rem, 5vw, 3.5rem); }
+.hero h1 { max-width: 14ch; margin-bottom: 0.3em; }
+.hero__text { max-width: 44ch; font-size: clamp(1.1rem, 1.7vw, 1.3rem); color: rgba(255, 255, 255, 0.92); }
+.hero .btn-row { margin-top: 1.75rem; }
+.hero .btn:not(.btn--whatsapp) { background: var(--white); border-color: var(--white); color: var(--ink); }
+.hero .btn:not(.btn--whatsapp):hover { background: var(--chalk); border-color: var(--chalk); }
+.hero :focus-visible { outline-color: var(--white); }
+
+/* Caption, counter and controls along the bottom edge */
+.hero__bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding-block: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  font-size: 0.95rem;
+}
+.hero__caption { margin: 0; display: flex; gap: 0.9rem; align-items: baseline; min-width: 0; }
+.hero__caption-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hero__count { font-variant-numeric: tabular-nums; color: rgba(255, 255, 255, 0.75); white-space: nowrap; }
+.hero__controls { display: flex; gap: 0.35rem; }
+.hero__btn {
+  display: grid; place-items: center;
+  width: 2.75rem; height: 2.75rem;
+  background: transparent; color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.45); border-radius: 50%;
+  cursor: pointer; transition: background-color 0.15s;
+}
+.hero__btn:hover { background: rgba(255, 255, 255, 0.18); }
+.hero__btn svg { width: 1.1rem; height: 1.1rem; }
+.hero__btn .icon-play { display: none; }
+.hero.is-paused .hero__btn .icon-play { display: block; }
+.hero.is-paused .hero__btn .icon-pause { display: none; }
+
+/* The thin line that fills while each photo is on screen */
+.hero__progress { height: 3px; background: rgba(255, 255, 255, 0.25); }
+.hero__progress-fill {
+  display: block; height: 100%; background: var(--white);
+  transform: scaleX(0); transform-origin: left center;
+}
+.hero.is-playing .hero__progress-fill { animation: hero-progress var(--slide-time, 6s) linear forwards; }
+.hero.is-paused .hero__progress-fill { animation-play-state: paused; }
+@keyframes hero-progress { to { transform: scaleX(1); } }
+
+html:not(.js) .hero__bar,
+html:not(.js) .hero__progress { display: none; }
+
+/* 8. Home sections -------------------------------------------------------- */
+.welcome { display: grid; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.welcome__media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+@media (min-width: 48rem) {
+  .welcome { grid-template-columns: 1.05fr 0.95fr; }
+}
+
+/* Short list of practical facts */
+.facts { display: grid; gap: 0; margin-top: 2rem; border-top: 1px solid var(--line); }
+.facts div { display: flex; justify-content: space-between; gap: 1.5rem; padding: 0.85rem 0; border-bottom: 1px solid var(--line); }
+.facts dt { color: var(--ink-soft); }
+.facts dd { margin: 0; font-weight: 600; text-align: right; }
+
+/* Room previews */
+.room-cards { display: grid; gap: clamp(1.75rem, 3vw, 2.5rem); list-style: none; }
+@media (min-width: 40rem) { .room-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 62rem) { .room-cards { grid-template-columns: repeat(3, 1fr); } }
+.room-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 1.1rem; }
+.room-card h3 { margin-bottom: 0.3em; }
+.room-card h3 a { color: var(--ink); text-decoration: none; }
+.room-card h3 a:hover { color: var(--indigo); text-decoration: underline; }
+.room-card p { color: var(--ink-soft); margin-bottom: 0.4em; }
+.room-card__meta { font-size: 0.95rem; font-weight: 600; color: var(--ink); }
+.section__more { margin: clamp(2rem, 4vw, 3rem) 0 0; }
+
+/* Amenity icons (also used on the Rooms page) */
+.amenities { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem 1.5rem; list-style: none; }
+@media (min-width: 40rem) { .amenities { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 62rem) { .amenities { grid-template-columns: repeat(4, 1fr); } }
+.amenities li { display: flex; align-items: center; gap: 0.9rem; font-weight: 500; line-height: 1.3; }
+.amenities svg {
+  flex: none; width: 2.75rem; height: 2.75rem; padding: 0.65rem;
+  color: var(--indigo); background: var(--white);
+  border: 1px solid var(--line); border-radius: 50%;
+}
+.section:not(.section--chalk) .amenities svg { background: var(--chalk); border-color: transparent; }
+.amenities small { display: block; font-weight: 400; font-size: 0.9rem; color: var(--ink-soft); }
+
+/* Photo mosaic that links to the gallery */
+.mosaic { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+.mosaic a { display: block; overflow: hidden; }
+.mosaic img { width: 100%; height: 100%; aspect-ratio: 1; object-fit: cover; transition: transform 0.5s ease; }
+.mosaic a:hover img { transform: scale(1.04); }
+.mosaic a:first-child { grid-column: span 2; }
+.mosaic a:first-child img { aspect-ratio: 16 / 10; }
+@media (min-width: 48rem) {
+  .mosaic { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0.75rem; }
+  .mosaic a:first-child { grid-column: span 2; grid-row: span 2; }
+  .mosaic a:first-child img { aspect-ratio: auto; }
+}
+
+/* Closing call to action */
+.cta { display: grid; gap: 1.5rem 3rem; align-items: center; }
+.cta h2 { margin-bottom: 0.3em; }
+.cta p { margin-bottom: 0; color: var(--ink-soft); }
+@media (min-width: 54rem) { .cta { grid-template-columns: 1fr auto; } }
+
+/* 9. Rooms & amenities ---------------------------------------------------- */
+.room { display: grid; gap: clamp(1.5rem, 4vw, 4rem); align-items: center; padding-block: clamp(2rem, 4vw, 3.25rem); border-top: 1px solid var(--line); }
+.room:first-of-type { border-top: 0; padding-top: 0; }
+.room__media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.room__body p { color: var(--ink-soft); }
+.room__specs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 1.5rem; margin: 1.5rem 0; padding-block: 1.25rem; border-block: 1px solid var(--line); }
+.room__specs dt { font-size: 0.9rem; color: var(--ink-soft); }
+.room__specs dd { margin: 0; font-weight: 600; }
+.room__includes { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem; }
+.room__includes li { padding: 0.3rem 0.75rem; background: var(--chalk); border-radius: 999px; font-size: 0.92rem; }
+@media (min-width: 52rem) {
+  .room { grid-template-columns: 1.1fr 0.9fr; }
+  .room:nth-of-type(even) .room__media { order: 2; }   /* alternate photo left / right */
+}
+
+/* Rates table. On narrow screens it scrolls sideways inside its own box. */
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); background: var(--white); }
+.table-scroll:focus-visible { outline-offset: 2px; }
+.rates { width: 100%; min-width: 38rem; border-collapse: collapse; text-align: left; }
+.rates caption { caption-side: bottom; padding: 0.9rem 1.1rem; text-align: left; font-size: 0.95rem; color: var(--ink-soft); }
+.rates th, .rates td { padding: 0.95rem 1.1rem; border-bottom: 1px solid var(--line); vertical-align: top; white-space: nowrap; }
+.rates thead th { background: var(--ink); color: var(--white); font-weight: 600; font-size: 0.95rem; }
+.rates tbody th { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; }
+.rates td { color: var(--ink-soft); }
+
+/* 10. Gallery & lightbox -------------------------------------------------- */
+.filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; list-style: none; }
+.filter {
+  min-height: 2.75rem; padding: 0.45rem 1.1rem;
+  background: var(--white); color: var(--ink);
+  border: 1.5px solid var(--line); border-radius: 999px;
+  font: 500 0.98rem/1.2 var(--font-body); cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+.filter:hover { border-color: var(--ink); }
+.filter[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--white); }
+html:not(.js) .filters { display: none; }
+
+/* Masonry with CSS columns: photos keep their own height */
+.gallery { columns: 2; column-gap: 0.6rem; list-style: none; }
+@media (min-width: 48rem) { .gallery { columns: 3; column-gap: 0.85rem; } }
+@media (min-width: 75rem) { .gallery { columns: 4; } }
+.gallery li { break-inside: avoid; margin-bottom: 0.6rem; }
+@media (min-width: 48rem) { .gallery li { margin-bottom: 0.85rem; } }
+.gallery li[hidden] { display: none; }
+.gallery a { position: relative; display: block; overflow: hidden; }
+.gallery img { width: 100%; transition: transform 0.5s ease; }
+.gallery a:hover img { transform: scale(1.04); }
+.gallery__label {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 2.5rem 0.9rem 0.75rem;
+  background: linear-gradient(to top, rgba(13, 21, 31, 0.75), rgba(13, 21, 31, 0));
+  color: var(--white); font-size: 0.95rem; line-height: 1.3;
+  opacity: 0; transition: opacity 0.2s;
+}
+.gallery a:hover .gallery__label,
+.gallery a:focus-visible .gallery__label { opacity: 1; }
+@media (hover: none) { .gallery__label { opacity: 1; } }
+
+.lightbox {
+  width: 100vw; max-width: 100vw; height: 100vh; height: 100dvh; max-height: none;
+  margin: 0; padding: 0; border: 0;
+  background: rgba(10, 16, 24, 0.96); color: var(--white);
+}
+.lightbox::backdrop { background: rgba(10, 16, 24, 0.96); }
+.lightbox[open] { display: grid; grid-template-rows: 1fr auto; }
+.lightbox__stage { position: relative; min-height: 0; display: grid; place-items: center; padding: 4rem 1rem 0.5rem; }
+.lightbox__img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; background: transparent; }
+.lightbox__info { display: flex; justify-content: space-between; gap: 1rem; padding: 0.9rem var(--gutter) 1.25rem; font-size: 0.98rem; }
+.lightbox__info p { margin: 0; }
+.lightbox__count { font-variant-numeric: tabular-nums; color: rgba(255, 255, 255, 0.7); white-space: nowrap; }
+.lightbox__btn {
+  position: absolute; display: grid; place-items: center;
+  width: 3rem; height: 3rem;
+  background: rgba(10, 16, 24, 0.55); color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%; cursor: pointer;
+}
+.lightbox__btn:hover { background: rgba(255, 255, 255, 0.2); }
+.lightbox__btn svg { width: 1.25rem; height: 1.25rem; }
+.lightbox__btn--close { top: 0.75rem; right: 0.75rem; }
+.lightbox__btn--prev { left: 0.75rem; top: 50%; transform: translateY(-50%); }
+.lightbox__btn--next { right: 0.75rem; top: 50%; transform: translateY(-50%); }
+.lightbox :focus-visible { outline-color: var(--white); }
+
+/* 11. Contact & form ------------------------------------------------------ */
+.contact { display: grid; gap: clamp(2.5rem, 6vw, 5rem); }
+@media (min-width: 56rem) { .contact { grid-template-columns: 0.85fr 1.15fr; } }
+
+.contact-list { list-style: none; border-top: 1px solid var(--line); }
+.contact-list li { display: flex; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+.contact-list svg { flex: none; width: 1.5rem; height: 1.5rem; margin-top: 0.15rem; color: var(--indigo); }
+.contact-list strong { display: block; font-weight: 600; }
+.contact-list span { color: var(--ink-soft); }
+.contact-list a { font-weight: 600; overflow-wrap: anywhere; }
+
+.form { padding: clamp(1.5rem, 4vw, 2.75rem); background: var(--chalk); }
+.form h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); }
+.form__grid { display: grid; gap: 1.1rem; }
+@media (min-width: 36rem) {
+  .form__grid { grid-template-columns: 1fr 1fr; }
+  .field--full { grid-column: 1 / -1; }
+}
+.field label { display: block; margin-bottom: 0.35rem; font-weight: 600; font-size: 0.98rem; }
+.field__hint { font-weight: 400; color: var(--ink-soft); }
+.field input,
+.field select,
+.field textarea {
+  width: 100%; min-height: 3rem; padding: 0.65rem 0.8rem;
+  background: var(--white); color: var(--ink);
+  border: 1.5px solid #8793a1; border-radius: var(--radius);
+  font: inherit;
+}
+.field textarea { min-height: 7rem; resize: vertical; }
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible { outline-offset: 1px; border-color: var(--indigo); }
+.field [aria-invalid="true"] { border-color: var(--error); }
+.field__error { margin: 0.35rem 0 0; color: var(--error); font-size: 0.93rem; font-weight: 500; }
+.form .btn-row { margin-top: 1.5rem; }
+.form__note { margin: 1rem 0 0; font-size: 0.93rem; color: var(--ink-soft); }
+.form__status { margin: 1rem 0 0; font-weight: 600; }
+.form__status:empty { display: none; }
+
+.map { position: relative; display: grid; place-items: center; min-height: clamp(18rem, 45vw, 26rem); background: var(--chalk); border: 1px solid var(--line); text-align: center; }
+.map__prompt { padding: 2rem var(--gutter); }
+.map__prompt p { margin-inline: auto; color: var(--ink-soft); }
+.map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.directions { display: grid; gap: 1.5rem 3rem; margin-top: 2.5rem; list-style: none; }
+@media (min-width: 48rem) { .directions { grid-template-columns: repeat(3, 1fr); } }
+.directions h3 { font-size: 1.25rem; margin-bottom: 0.35em; }
+.directions p { color: var(--ink-soft); margin: 0; }
+
+/* 12. Footer, floating WhatsApp button, motion ---------------------------- */
+.site-footer { background: var(--ink); color: rgba(255, 255, 255, 0.82); padding-block: clamp(3rem, 6vw, 4.5rem) 2rem; }
+.site-footer a { color: var(--white); }
+.site-footer :focus-visible { outline-color: var(--white); }
+.site-footer__grid { display: grid; gap: 2.5rem; }
+@media (min-width: 48rem) { .site-footer__grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+.site-footer .brand { color: var(--white); margin-bottom: 1rem; }
+.site-footer h2 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.8rem; letter-spacing: 0; }
+.site-footer ul { list-style: none; display: grid; gap: 0.45rem; }
+.site-footer address { font-style: normal; }
+.site-footer__base { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.18); font-size: 0.92rem; display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; }
+.site-footer__base p { margin: 0; max-width: none; }
+
+.whatsapp-float {
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 90;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  min-height: 3.25rem; padding: 0 1.1rem 0 0.95rem;
+  background: var(--whatsapp); color: var(--white);
+  border-radius: 999px; font-weight: 600; text-decoration: none;
+  box-shadow: 0 8px 22px -6px rgba(9, 60, 34, 0.55);
+}
+.whatsapp-float:hover { background: var(--whatsapp-deep); color: var(--white); }
+.whatsapp-float svg { width: 1.5rem; height: 1.5rem; }
+@media (max-width: 36rem) {
+  .whatsapp-float { width: 3.5rem; height: 3.5rem; padding: 0; justify-content: center; }
+  .whatsapp-float span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+}
+.has-hero .whatsapp-float { opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+.has-hero.is-scrolled .whatsapp-float { opacity: 1; pointer-events: auto; }
+html:not(.js) .has-hero .whatsapp-float { opacity: 1; pointer-events: auto; }
+
+/* Motion: smooth scrolling and the slow hero zoom only for people who have
+   not asked their device to reduce motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .hero__slide.is-active { animation: hero-zoom 9s ease-out forwards; }
+  @keyframes hero-zoom { from { transform: scale(1.06); } to { transform: scale(1); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  .hero__progress { display: none; }
+  .hero__btn--toggle { display: none; }
+}
+
+@media print {
+  .site-header, .whatsapp-float, .hero__bar, .hero__progress, .filters { display: none !important; }
+}

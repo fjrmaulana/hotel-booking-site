@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO: every page has its own title and description. Edit both when you change the text. -->
+  <title>Rooms and amenities | Alba House</title>
+  <meta name="description" content="Garden Rooms, Terrace Rooms and a Family Suite, each with breakfast, air conditioning and Wi-Fi. Compare rooms, see amenities and ask for rates.">
+
+  <!-- Preview shown when the page is shared on WhatsApp, Facebook, etc. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Alba House">
+  <meta property="og:title" content="Rooms and amenities | Alba House">
+  <meta property="og:description" content="Garden Rooms, Terrace Rooms and a Family Suite, each with breakfast, air conditioning and Wi-Fi. Compare rooms, see amenities and ask for rates.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=70">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Speed: open the photo connection early and load the two fonts up front -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="preload" href="fonts/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/albert-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Marks the page as "JavaScript is on" before anything is drawn -->
+  <script>document.documentElement.className = "js";</script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Header: the same on every page ===== -->
+  <header class="site-header" data-header>
+    <div class="wrap site-header__inner">
+      <a class="brand" href="index.html" aria-label="Alba House, home">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M6 29V14a10 10 0 0 1 20 0v15"/><path d="M12 29V15a4 4 0 0 1 8 0v14"/><path d="M3 29h26"/></svg>
+        <span>Alba House</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        Menu
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rooms.html" aria-current="page">Rooms &amp; amenities</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a class="btn btn--small" href="contact.html#enquiry">Book now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <div class="wrap page-head">
+      <h1>Rooms and amenities</h1>
+      <p class="lead">Twelve rooms in three sizes. Choose the one that suits your trip, then ask us about your dates.</p>
+    </div>
+
+    <!-- ===== Individual room blocks ===== -->
+    <section class="section" style="padding-top: 0" aria-label="Rooms">
+      <div class="wrap">
+
+        <!-- Room: Garden Room. Copy this whole <article> to add another room. -->
+        <article class="room" id="garden-room">
+          <div class="room__media">
+            <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=1200&amp;h=900&amp;q=70"
+                 srcset="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=480&amp;h=360&amp;q=70 480w, https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=70 800w, https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=1200&amp;h=900&amp;q=70 1200w, https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=1600&amp;h=1200&amp;q=70 1600w"
+                 sizes="(min-width: 52rem) 52vw, 92vw"
+                 width="1200" height="900" alt="Hotel bedroom with a wooden bed, teal pillows and a view of a private garden" loading="lazy" decoding="async">
+          </div>
+          <div class="room__body">
+            <h2>Garden Room</h2>
+            <p>Our most popular room. Step out through the glass doors and you are in the courtyard, a few paces from the pool.</p>
+            <p>Inside you will find a queen bed with cotton linen, a writing desk and a walk-in rain shower.</p>
+            <dl class="room__specs">
+              <div><dt>Sleeps</dt><dd>2 guests</dd></div>
+              <div><dt>Bed</dt><dd>1 queen</dd></div>
+              <div><dt>Size</dt><dd>22 m²</dd></div>
+              <div><dt>View</dt><dd>Courtyard garden</dd></div>
+            </dl>
+            <ul class="room__includes" aria-label="Included with the Garden Room">
+              <li>Breakfast</li>
+              <li>Wi-Fi</li>
+              <li>Air conditioning</li>
+              <li>Rain shower</li>
+              <li>Tea and coffee</li>
+            </ul>
+            <a class="btn" href="contact.html?room=Garden+Room#enquiry">Ask about the Garden Room</a>
+          </div>
+        </article>
+
+        <!-- Room: Terrace Room. Copy this whole <article> to add another room. -->
+        <article class="room" id="terrace-room">
+          <div class="room__media">
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&amp;fit=crop&amp;w=1200&amp;h=900&amp;q=70"
+                 srcset="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&amp;fit=crop&amp;w=480&amp;h=360&amp;q=70 480w, https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=70 800w, https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&amp;fit=crop&amp;w=1200&amp;h=900&amp;q=70 1200w, https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&amp;fit=crop&amp;w=1600&amp;h=1200&amp;q=70 1600w"
+                 sizes="(min-width: 52rem) 52vw, 92vw"
+                 width="1200" height="900" alt="Bed made up with white linen and throw pillows" loading="lazy" decoding="async">
+          </div>
+          <div class="room__body">
+            <h2>Terrace Room</h2>
+            <p>On the first floor, with more space and more light. The private terrace has two chairs and a table, and catches the evening breeze.</p>
+            <p>A king bed, a reading corner and a bathroom with both bathtub and shower make it an easy room to stay in for a week.</p>
+            <dl class="room__specs">
+              <div><dt>Sleeps</dt><dd>2 guests</dd></div>
+              <div><dt>Bed</dt><dd>1 king</dd></div>
+              <div><dt>Size</dt><dd>28 m²</dd></div>
+              <div><dt>View</dt><dd>Private terrace</dd></div>
+            </dl>
+            <ul class="room__includes" aria-label="Included with the Terrace Room">
+              <li>Breakfast</li>
+              <li>Wi-Fi</li>
+              <li>Air conditioning</li>
+              <li>Bathtub</li>
+              <li>Mini fridge</li>
+              <li>Smart TV</li>
+            </ul>
+            <a class="btn" href="contact.html?room=Terrace+Room#enquiry">Ask about the Terrace Room</a>
+          </div>
+        </article>
+
+        <!-- Room: Family Suite. Copy this whole <article> to add another room. -->
+        <article class="room" id="family-suite">
+          <div class="room__media">
+            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&amp;fit=crop&amp;w=1200&amp;h=900&amp;q=70"
+                 srcset="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&amp;fit=crop&amp;w=480&amp;h=360&amp;q=70 480w, https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=70 800w, https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&amp;fit=crop&amp;w=1200&amp;h=900&amp;q=70 1200w, https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&amp;fit=crop&amp;w=1600&amp;h=1200&amp;q=70 1600w"
+                 sizes="(min-width: 52rem) 52vw, 92vw"
+                 width="1200" height="900" alt="Bright hotel suite with a white sofa and a red throw pillow" loading="lazy" decoding="async">
+          </div>
+          <div class="room__body">
+            <h2>Family Suite</h2>
+            <p>A bedroom with a king bed, a second room with two singles, and a sitting area between them where everyone can spread out.</p>
+            <p>Cots and an extra bed are free on request. The suite is on the ground floor, so there are no stairs to manage with luggage or a pushchair.</p>
+            <dl class="room__specs">
+              <div><dt>Sleeps</dt><dd>4 guests</dd></div>
+              <div><dt>Beds</dt><dd>1 king, 2 singles</dd></div>
+              <div><dt>Size</dt><dd>42 m²</dd></div>
+              <div><dt>View</dt><dd>Garden and pool</dd></div>
+            </dl>
+            <ul class="room__includes" aria-label="Included with the Family Suite">
+              <li>Breakfast</li>
+              <li>Wi-Fi</li>
+              <li>Air conditioning</li>
+              <li>Sitting area</li>
+              <li>Mini fridge</li>
+              <li>Smart TV</li>
+              <li>Cot on request</li>
+            </ul>
+            <a class="btn" href="contact.html?room=Family+Suite#enquiry">Ask about the Family Suite</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Amenities ===== -->
+    <section class="section section--chalk" id="amenities" aria-labelledby="amenities-title">
+      <div class="wrap">
+        <div class="section__intro">
+          <h2 id="amenities-title">Amenities</h2>
+          <p>Everything here is part of the room price. There are no resort fees.</p>
+        </div>
+        <!-- To add an amenity, copy one <li> ... </li> block and change the text. -->
+        <ul class="amenities">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1"/></svg>
+            <span>Free Wi-Fi <small>In every room</small></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17M9 4l3 2 3-2M9 20l3-2 3 2"/></svg>
+            <span>Air conditioning <small>Individually controlled</small></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9zM17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 3v3M12 3v3"/></svg>
+            <span>Breakfast included <small>7:30 to 10:30 am</small></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 19c1.7 0 1.7 1.5 3.3 1.5S7 19 8.7 19s1.6 1.5 3.3 1.5 1.7-1.5 3.3-1.5 1.7 1.5 3.4 1.5S20.3 19 22 19M8 16V6a2 2 0 0 1 4 0M16 16V6a2 2 0 0 1 4 0M8 9h8M8 12.5h8"/></svg>
+            <span>Garden pool <small>Open 7 am to 8 pm</small></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9.5 17V7H13a3 3 0 0 1 0 6H9.5"/></svg>
+            <span>Free parking <small>On site, gated</small></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15l1.6-5A2 2 0 0 1 8.5 8.5h7a2 2 0 0 1 1.9 1.5L19 15M3.5 15h17v4h-17zM6.5 19v1.5M17.5 19v1.5M7 17h.01M17 17h.01"/></svg>
+            <span>Airport pickup <small>On request</small></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 17a8 8 0 0 1 16 0zM12 9V6.5M10 6.5h4M3 20h18"/></svg>
+            <span>Front desk <small>Staffed 24 hours</small></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+            <span>Daily housekeeping <small>Fresh towels every day</small></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>
+            <span>Hot water <small>Round the clock</small></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13.5" r="4"/><path d="M7.5 6.5h.01M10.5 6.5h.01"/></svg>
+            <span>Laundry service <small>Same-day return</small></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg>
+            <span>Smart TV <small>In every room</small></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19C5 11 10 6 20 5c-1 10-6 15-14 15M5 19c2-4 5-7 9-9"/></svg>
+            <span>Garden courtyard <small>Shaded seating</small></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Rates table =====
+         Ready for your prices: replace each "On request" with a figure such as
+         "₹4,500". Add a row by copying one <tr> ... </tr> block, or a column by
+         adding a <th> in the top row and a <td> in every row below it. -->
+    <section class="section" id="rates" aria-labelledby="rates-title">
+      <div class="wrap">
+        <div class="section__intro">
+          <h2 id="rates-title">Rates</h2>
+          <p>Our price list is being finalised. Until it is published here, send us your dates and we will quote straight away.</p>
+        </div>
+        <div class="table-scroll" tabindex="0" role="region" aria-labelledby="rates-title">
+          <table class="rates">
+            <caption>Per room, per night. Children under six stay free in their parents' room.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Room</th>
+                <th scope="col">Sleeps</th>
+                <th scope="col">October to March</th>
+                <th scope="col">April to September</th>
+                <th scope="col">Price includes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Garden Room</th>
+                <td>2 guests</td>
+                <td>On request</td>
+                <td>On request</td>
+                <td>Breakfast, Wi-Fi, taxes</td>
+              </tr>
+              <tr>
+                <th scope="row">Terrace Room</th>
+                <td>2 guests</td>
+                <td>On request</td>
+                <td>On request</td>
+                <td>Breakfast, Wi-Fi, taxes</td>
+              </tr>
+              <tr>
+                <th scope="row">Family Suite</th>
+                <td>4 guests</td>
+                <td>On request</td>
+                <td>On request</td>
+                <td>Breakfast, Wi-Fi, taxes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="btn-row" style="margin-top: 2rem">
+          <a class="btn" href="contact.html#enquiry">Ask for a quote</a>
+          <a class="btn btn--whatsapp" href="https://wa.me/910000000000?text=Hello%20Alba%20House%2C%20I%27d%20like%20to%20ask%20about%20a%20stay." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer: the same on every page ===== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__grid">
+        <div>
+          <a class="brand" href="index.html" aria-label="Alba House, home">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M6 29V14a10 10 0 0 1 20 0v15"/><path d="M12 29V15a4 4 0 0 1 8 0v14"/><path d="M3 29h26"/></svg>
+            <span>Alba House</span>
+          </a>
+          <p>A small, family-run hotel with twelve bright rooms, a garden pool and breakfast included.</p>
+        </div>
+
+        <nav aria-label="Footer">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="rooms.html#amenities">Amenities</a></li>
+            <li><a href="rooms.html#rates">Rates</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2>Reach us</h2>
+          <address>
+            <ul>
+              <li>14 Lake Road, Udaipur,<br>Rajasthan 313001, India</li>
+              <li><a href="tel:+910000000000">+91 00000 00000</a></li>
+              <li><a href="mailto:stay@albahouse.example">stay@albahouse.example</a></li>
+              <li><a href="https://wa.me/910000000000?text=Hello%20Alba%20House%2C%20I%27d%20like%20to%20ask%20about%20a%20stay." target="_blank" rel="noopener">Chat on WhatsApp</a></li>
+            </ul>
+          </address>
+        </div>
+      </div>
+
+      <div class="site-footer__base">
+        <p>&copy; <span data-year>2026</span> Alba House. All rights reserved.</p>
+        <p>Photos from <a href="https://unsplash.com/license">Unsplash</a>, free to use.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button, always within reach -->
+  <a class="whatsapp-float" href="https://wa.me/910000000000?text=Hello%20Alba%20House%2C%20I%27d%20like%20to%20ask%20about%20a%20stay." target="_blank" rel="noopener" aria-label="Chat with Alba House on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+</body>
+</html>

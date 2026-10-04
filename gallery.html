@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO: every page has its own title and description. Edit both when you change the text. -->
+  <title>Photo gallery | Alba House</title>
+  <meta name="description" content="Photos of the rooms, bathrooms, breakfast, lounge and garden pool at Alba House. Tap any photo to see it full screen.">
+
+  <!-- Preview shown when the page is shared on WhatsApp, Facebook, etc. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Alba House">
+  <meta property="og:title" content="Photo gallery | Alba House">
+  <meta property="og:description" content="Photos of the rooms, bathrooms, breakfast, lounge and garden pool at Alba House. Tap any photo to see it full screen.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=70">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Speed: open the photo connection early and load the two fonts up front -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="preload" href="fonts/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/albert-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Marks the page as "JavaScript is on" before anything is drawn -->
+  <script>document.documentElement.className = "js";</script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Header: the same on every page ===== -->
+  <header class="site-header" data-header>
+    <div class="wrap site-header__inner">
+      <a class="brand" href="index.html" aria-label="Alba House, home">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M6 29V14a10 10 0 0 1 20 0v15"/><path d="M12 29V15a4 4 0 0 1 8 0v14"/><path d="M3 29h26"/></svg>
+        <span>Alba House</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        Menu
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rooms.html">Rooms &amp; amenities</a></li>
+          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a class="btn btn--small" href="contact.html#enquiry">Book now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <div class="wrap page-head">
+      <h1>Gallery</h1>
+      <p class="lead">Tap any photo to see it full screen. Use the arrow keys or swipe to move between photos.</p>
+    </div>
+
+    <section class="section" style="padding-top: 1rem" aria-label="Photos">
+      <div class="wrap">
+
+        <!-- Filter buttons. data-filter must match a data-category used below. -->
+        <ul class="filters" aria-label="Filter photos">
+          <li><button class="filter" type="button" data-filter="all" aria-pressed="true">All photos</button></li>
+          <li><button class="filter" type="button" data-filter="rooms" aria-pressed="false">Rooms</button></li>
+          <li><button class="filter" type="button" data-filter="bathrooms" aria-pressed="false">Bathrooms</button></li>
+          <li><button class="filter" type="button" data-filter="dining" aria-pressed="false">Dining</button></li>
+          <li><button class="filter" type="button" data-filter="spaces" aria-pressed="false">Shared spaces</button></li>
+          <li><button class="filter" type="button" data-filter="outdoors" aria-pressed="false">Outdoors</button></li>
+        </ul>
+        <p class="visually-hidden" role="status" data-gallery-status></p>
+
+        <!-- ===== Photo grid =====
+             One <li> per photo. To add a photo, copy a whole <li> ... </li> block and change:
+               data-category  which filter it belongs to
+               href           the large version opened in the lightbox
+               data-caption   the text shown under the large photo
+               src / srcset   the small version shown in the grid
+               alt            a short description for screen readers and Google -->
+        <ul class="gallery" data-gallery>
+          <li data-category="rooms">
+            <a href="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="Garden Room">
+              <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=300&amp;h=225&amp;q=70 300w, https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=450&amp;h=338&amp;q=70 450w, https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70 600w, https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=900&amp;h=675&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="450" alt="Hotel bedroom with a wooden bed, teal pillows and a private garden view">
+              <span class="gallery__label">Garden Room</span>
+            </a>
+          </li>
+          <li data-category="outdoors">
+            <a href="https://images.unsplash.com/photo-1683914791856-040e5de792b3?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="Loungers by the pool">
+              <img src="https://images.unsplash.com/photo-1683914791856-040e5de792b3?auto=format&amp;fit=crop&amp;w=600&amp;h=750&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1683914791856-040e5de792b3?auto=format&amp;fit=crop&amp;w=300&amp;h=375&amp;q=70 300w, https://images.unsplash.com/photo-1683914791856-040e5de792b3?auto=format&amp;fit=crop&amp;w=450&amp;h=562&amp;q=70 450w, https://images.unsplash.com/photo-1683914791856-040e5de792b3?auto=format&amp;fit=crop&amp;w=600&amp;h=750&amp;q=70 600w, https://images.unsplash.com/photo-1683914791856-040e5de792b3?auto=format&amp;fit=crop&amp;w=900&amp;h=1125&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="750" alt="Pool with chairs and an umbrella beside it">
+              <span class="gallery__label">Loungers by the pool</span>
+            </a>
+          </li>
+          <li data-category="dining">
+            <a href="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="The breakfast table">
+              <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&amp;fit=crop&amp;w=300&amp;h=300&amp;q=70 300w, https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&amp;fit=crop&amp;w=450&amp;h=450&amp;q=70 450w, https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=70 600w, https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="600" alt="Breakfast spread with waffles, eggs and juice">
+              <span class="gallery__label">The breakfast table</span>
+            </a>
+          </li>
+          <li data-category="bathrooms">
+            <a href="https://images.unsplash.com/photo-1646974400439-8472d58bb19e?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="Bathtub by the window">
+              <img src="https://images.unsplash.com/photo-1646974400439-8472d58bb19e?auto=format&amp;fit=crop&amp;w=600&amp;h=750&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1646974400439-8472d58bb19e?auto=format&amp;fit=crop&amp;w=300&amp;h=375&amp;q=70 300w, https://images.unsplash.com/photo-1646974400439-8472d58bb19e?auto=format&amp;fit=crop&amp;w=450&amp;h=562&amp;q=70 450w, https://images.unsplash.com/photo-1646974400439-8472d58bb19e?auto=format&amp;fit=crop&amp;w=600&amp;h=750&amp;q=70 600w, https://images.unsplash.com/photo-1646974400439-8472d58bb19e?auto=format&amp;fit=crop&amp;w=900&amp;h=1125&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="750" alt="Bathroom with a large bathtub next to a window">
+              <span class="gallery__label">Bathtub by the window</span>
+            </a>
+          </li>
+          <li data-category="spaces">
+            <a href="https://images.unsplash.com/photo-1660557989725-f511e9fa6267?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="The lounge">
+              <img src="https://images.unsplash.com/photo-1660557989725-f511e9fa6267?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1660557989725-f511e9fa6267?auto=format&amp;fit=crop&amp;w=300&amp;h=225&amp;q=70 300w, https://images.unsplash.com/photo-1660557989725-f511e9fa6267?auto=format&amp;fit=crop&amp;w=450&amp;h=338&amp;q=70 450w, https://images.unsplash.com/photo-1660557989725-f511e9fa6267?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70 600w, https://images.unsplash.com/photo-1660557989725-f511e9fa6267?auto=format&amp;fit=crop&amp;w=900&amp;h=675&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="450" alt="Lounge with a sofa and a coffee table" loading="lazy" decoding="async">
+              <span class="gallery__label">The lounge</span>
+            </a>
+          </li>
+          <li data-category="rooms">
+            <a href="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="Fresh white linen">
+              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=300&amp;h=300&amp;q=70 300w, https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=450&amp;h=450&amp;q=70 450w, https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=70 600w, https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="600" alt="Bed made up with white linen" loading="lazy" decoding="async">
+              <span class="gallery__label">Fresh white linen</span>
+            </a>
+          </li>
+          <li data-category="outdoors">
+            <a href="https://images.unsplash.com/photo-1683914791736-9b0e739565e4?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="The pool among the trees">
+              <img src="https://images.unsplash.com/photo-1683914791736-9b0e739565e4?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1683914791736-9b0e739565e4?auto=format&amp;fit=crop&amp;w=300&amp;h=225&amp;q=70 300w, https://images.unsplash.com/photo-1683914791736-9b0e739565e4?auto=format&amp;fit=crop&amp;w=450&amp;h=338&amp;q=70 450w, https://images.unsplash.com/photo-1683914791736-9b0e739565e4?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70 600w, https://images.unsplash.com/photo-1683914791736-9b0e739565e4?auto=format&amp;fit=crop&amp;w=900&amp;h=675&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="450" alt="Swimming pool surrounded by trees and chairs" loading="lazy" decoding="async">
+              <span class="gallery__label">The pool among the trees</span>
+            </a>
+          </li>
+          <li data-category="dining">
+            <a href="https://images.unsplash.com/photo-1603532232030-69a8264a71f4?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="Fruit and coffee">
+              <img src="https://images.unsplash.com/photo-1603532232030-69a8264a71f4?auto=format&amp;fit=crop&amp;w=600&amp;h=750&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1603532232030-69a8264a71f4?auto=format&amp;fit=crop&amp;w=300&amp;h=375&amp;q=70 300w, https://images.unsplash.com/photo-1603532232030-69a8264a71f4?auto=format&amp;fit=crop&amp;w=450&amp;h=562&amp;q=70 450w, https://images.unsplash.com/photo-1603532232030-69a8264a71f4?auto=format&amp;fit=crop&amp;w=600&amp;h=750&amp;q=70 600w, https://images.unsplash.com/photo-1603532232030-69a8264a71f4?auto=format&amp;fit=crop&amp;w=900&amp;h=1125&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="750" alt="Sliced fruit on a white plate beside a mug of coffee" loading="lazy" decoding="async">
+              <span class="gallery__label">Fruit and coffee</span>
+            </a>
+          </li>
+          <li data-category="spaces">
+            <a href="https://images.unsplash.com/photo-1646991761123-d83ce47c30c9?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="Seating in the lobby">
+              <img src="https://images.unsplash.com/photo-1646991761123-d83ce47c30c9?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1646991761123-d83ce47c30c9?auto=format&amp;fit=crop&amp;w=300&amp;h=225&amp;q=70 300w, https://images.unsplash.com/photo-1646991761123-d83ce47c30c9?auto=format&amp;fit=crop&amp;w=450&amp;h=338&amp;q=70 450w, https://images.unsplash.com/photo-1646991761123-d83ce47c30c9?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70 600w, https://images.unsplash.com/photo-1646991761123-d83ce47c30c9?auto=format&amp;fit=crop&amp;w=900&amp;h=675&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="450" alt="Hotel lobby with sofas, chairs and a chandelier" loading="lazy" decoding="async">
+              <span class="gallery__label">Seating in the lobby</span>
+            </a>
+          </li>
+          <li data-category="bathrooms">
+            <a href="https://images.unsplash.com/photo-1611971263575-ab653c31a5a9?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="Wash basin">
+              <img src="https://images.unsplash.com/photo-1611971263575-ab653c31a5a9?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1611971263575-ab653c31a5a9?auto=format&amp;fit=crop&amp;w=300&amp;h=300&amp;q=70 300w, https://images.unsplash.com/photo-1611971263575-ab653c31a5a9?auto=format&amp;fit=crop&amp;w=450&amp;h=450&amp;q=70 450w, https://images.unsplash.com/photo-1611971263575-ab653c31a5a9?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=70 600w, https://images.unsplash.com/photo-1611971263575-ab653c31a5a9?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="600" alt="White ceramic sink with a steel tap" loading="lazy" decoding="async">
+              <span class="gallery__label">Wash basin</span>
+            </a>
+          </li>
+          <li data-category="rooms">
+            <a href="https://images.unsplash.com/photo-1568495248636-6432b97bd949?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="Terrace Room">
+              <img src="https://images.unsplash.com/photo-1568495248636-6432b97bd949?auto=format&amp;fit=crop&amp;w=600&amp;h=750&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1568495248636-6432b97bd949?auto=format&amp;fit=crop&amp;w=300&amp;h=375&amp;q=70 300w, https://images.unsplash.com/photo-1568495248636-6432b97bd949?auto=format&amp;fit=crop&amp;w=450&amp;h=562&amp;q=70 450w, https://images.unsplash.com/photo-1568495248636-6432b97bd949?auto=format&amp;fit=crop&amp;w=600&amp;h=750&amp;q=70 600w, https://images.unsplash.com/photo-1568495248636-6432b97bd949?auto=format&amp;fit=crop&amp;w=900&amp;h=1125&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="750" alt="Hotel bed with a grey bedspread" loading="lazy" decoding="async">
+              <span class="gallery__label">Terrace Room</span>
+            </a>
+          </li>
+          <li data-category="dining">
+            <a href="https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="Breakfast in bed">
+              <img src="https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&amp;fit=crop&amp;w=300&amp;h=225&amp;q=70 300w, https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&amp;fit=crop&amp;w=450&amp;h=338&amp;q=70 450w, https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70 600w, https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&amp;fit=crop&amp;w=900&amp;h=675&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="450" alt="Breakfast tray with orange juice and pastries on a bed" loading="lazy" decoding="async">
+              <span class="gallery__label">Breakfast in bed</span>
+            </a>
+          </li>
+          <li data-category="outdoors">
+            <a href="https://images.unsplash.com/photo-1549294413-26f195200c16?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="Under the palms">
+              <img src="https://images.unsplash.com/photo-1549294413-26f195200c16?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1549294413-26f195200c16?auto=format&amp;fit=crop&amp;w=300&amp;h=225&amp;q=70 300w, https://images.unsplash.com/photo-1549294413-26f195200c16?auto=format&amp;fit=crop&amp;w=450&amp;h=338&amp;q=70 450w, https://images.unsplash.com/photo-1549294413-26f195200c16?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70 600w, https://images.unsplash.com/photo-1549294413-26f195200c16?auto=format&amp;fit=crop&amp;w=900&amp;h=675&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="450" alt="Wooden lounge chairs by a pool surrounded by palm trees" loading="lazy" decoding="async">
+              <span class="gallery__label">Under the palms</span>
+            </a>
+          </li>
+          <li data-category="spaces">
+            <a href="https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="Morning coffee in the courtyard">
+              <img src="https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&amp;fit=crop&amp;w=600&amp;h=750&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&amp;fit=crop&amp;w=300&amp;h=375&amp;q=70 300w, https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&amp;fit=crop&amp;w=450&amp;h=562&amp;q=70 450w, https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&amp;fit=crop&amp;w=600&amp;h=750&amp;q=70 600w, https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&amp;fit=crop&amp;w=900&amp;h=1125&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="750" alt="Small metal table with a white cup and saucer" loading="lazy" decoding="async">
+              <span class="gallery__label">Morning coffee in the courtyard</span>
+            </a>
+          </li>
+          <li data-category="rooms">
+            <a href="https://images.unsplash.com/photo-1667125095636-dce94dcbdd96?auto=format&amp;fit=max&amp;w=1800&amp;q=75" data-caption="Family Suite bedroom">
+              <img src="https://images.unsplash.com/photo-1667125095636-dce94dcbdd96?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1667125095636-dce94dcbdd96?auto=format&amp;fit=crop&amp;w=300&amp;h=300&amp;q=70 300w, https://images.unsplash.com/photo-1667125095636-dce94dcbdd96?auto=format&amp;fit=crop&amp;w=450&amp;h=450&amp;q=70 450w, https://images.unsplash.com/photo-1667125095636-dce94dcbdd96?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=70 600w, https://images.unsplash.com/photo-1667125095636-dce94dcbdd96?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=70 900w"
+                   sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+                   width="600" height="600" alt="Hotel room with a bed and a mirror" loading="lazy" decoding="async">
+              <span class="gallery__label">Family Suite bedroom</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Lightbox: the full-screen photo viewer ===== -->
+  <dialog class="lightbox" data-lightbox aria-label="Photo viewer">
+    <div class="lightbox__stage">
+      <img class="lightbox__img" alt="">
+      <button class="lightbox__btn lightbox__btn--close" type="button" data-lightbox-close>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        <span class="visually-hidden">Close photo viewer</span>
+      </button>
+      <button class="lightbox__btn lightbox__btn--prev" type="button" data-lightbox-prev>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
+        <span class="visually-hidden">Previous photo</span>
+      </button>
+      <button class="lightbox__btn lightbox__btn--next" type="button" data-lightbox-next>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
+        <span class="visually-hidden">Next photo</span>
+      </button>
+    </div>
+    <div class="lightbox__info" aria-live="polite">
+      <p data-lightbox-caption></p>
+      <p class="lightbox__count" data-lightbox-count></p>
+    </div>
+  </dialog>
+
+  <!-- ===== Footer: the same on every page ===== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__grid">
+        <div>
+          <a class="brand" href="index.html" aria-label="Alba House, home">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M6 29V14a10 10 0 0 1 20 0v15"/><path d="M12 29V15a4 4 0 0 1 8 0v14"/><path d="M3 29h26"/></svg>
+            <span>Alba House</span>
+          </a>
+          <p>A small, family-run hotel with twelve bright rooms, a garden pool and breakfast included.</p>
+        </div>
+
+        <nav aria-label="Footer">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="rooms.html#amenities">Amenities</a></li>
+            <li><a href="rooms.html#rates">Rates</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2>Reach us</h2>
+          <address>
+            <ul>
+              <li>14 Lake Road, Udaipur,<br>Rajasthan 313001, India</li>
+              <li><a href="tel:+910000000000">+91 00000 00000</a></li>
+              <li><a href="mailto:stay@albahouse.example">stay@albahouse.example</a></li>
+              <li><a href="https://wa.me/910000000000?text=Hello%20Alba%20House%2C%20I%27d%20like%20to%20ask%20about%20a%20stay." target="_blank" rel="noopener">Chat on WhatsApp</a></li>
+            </ul>
+          </address>
+        </div>
+      </div>
+
+      <div class="site-footer__base">
+        <p>&copy; <span data-year>2026</span> Alba House. All rights reserved.</p>
+        <p>Photos from <a href="https://unsplash.com/license">Unsplash</a>, free to use.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button, always within reach -->
+  <a class="whatsapp-float" href="https://wa.me/910000000000?text=Hello%20Alba%20House%2C%20I%27d%20like%20to%20ask%20about%20a%20stay." target="_blank" rel="noopener" aria-label="Chat with Alba House on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+</body>
+</html>
