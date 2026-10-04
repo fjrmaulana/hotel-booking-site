@@ -259,10 +259,16 @@ a:hover { color: var(--indigo-deep); text-decoration-thickness: 2px; }
 /* Darkens the top (menu) and bottom (headline) so white text stays readable */
 .hero::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
+  /* Three soft shades (top, bottom, left) keep white text readable on bright photos */
   background:
-    linear-gradient(to bottom, rgba(13, 21, 31, 0.55) 0, rgba(13, 21, 31, 0) 26%),
-    linear-gradient(to top, rgba(13, 21, 31, 0.82) 0, rgba(13, 21, 31, 0.35) 45%, rgba(13, 21, 31, 0) 75%);
+    linear-gradient(to bottom, rgba(13, 21, 31, 0.62) 0, rgba(13, 21, 31, 0) 30%),
+    linear-gradient(to top, rgba(13, 21, 31, 0.86) 0, rgba(13, 21, 31, 0.5) 42%, rgba(13, 21, 31, 0) 82%),
+    linear-gradient(to right, rgba(13, 21, 31, 0.5) 0, rgba(13, 21, 31, 0) 68%);
 }
+.site-header .btn { text-shadow: none; }
+.hero h1,
+.hero__text,
+.has-hero .site-header:not(.is-stuck):not(.is-open) { text-shadow: 0 1px 18px rgba(13, 21, 31, 0.45); }
 
 .hero__content { padding-block: calc(var(--header-h) + 3rem) clamp(2rem, 5vw, 3.5rem); }
 .hero h1 { max-width: 14ch; margin-bottom: 0.3em; }
